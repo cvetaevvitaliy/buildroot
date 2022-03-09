@@ -21,6 +21,8 @@ config BR2_PACKAGE_GCNANO_BINARIES
 	select BR2_PACKAGE_HAS_LIBGLES
 	select BR2_PACKAGE_LIBDRM
 	select BR2_PACKAGE_WAYLAND
+	select BR2_PACKAGE_HAS_LIBEGL_WAYLAND
+	select BR2_PACKAGE_SDL2_KMSDRM
 	help
 	  Driver and libaries for stm vivante gcnano gpu.
 	  https://github.com/STMicroelectronics/gcnano-binaries/
@@ -34,6 +36,15 @@ config BR2_PACKAGE_PROVIDES_LIBGBM
 	default "gcnano-binaries"
 
 config BR2_PACKAGE_PROVIDES_LIBGLES
+	default "gcnano-binaries"
+
+config BR2_PACKAGE_WAYLAND
+	default "gcnano-binaries"
+
+config BR2_PACKAGE_HAS_LIBEGL_WAYLAND
+	default "gcnano-binaries"
+
+config BR2_PACKAGE_SDL2_KMSDRM
 	default "gcnano-binaries"
 
 endif
