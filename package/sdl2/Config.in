@@ -32,7 +32,8 @@ comment "X11 video driver needs X.org"
 config BR2_PACKAGE_SDL2_KMSDRM
 	bool "KMS/DRM video driver"
 	depends on BR2_PACKAGE_LIBDRM
-	depends on BR2_PACKAGE_MESA3D_GBM
+	depends on BR2_PACKAGE_MESA3D_GBM || BR2_PACKAGE_GCNANO_BINARIES
+	
 
 comment "KMS/DRM video driver needs libdrm"
 	depends on !BR2_PACKAGE_LIBDRM

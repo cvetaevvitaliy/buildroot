@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SDL2_VERSION = 2.0.16
+SDL2_VERSION = 2.0.20
 SDL2_SOURCE = SDL2-$(SDL2_VERSION).tar.gz
 SDL2_SITE = http://www.libsdl.org/release
 SDL2_LICENSE = Zlib
@@ -14,13 +14,13 @@ SDL2_CPE_ID_PRODUCT = simple_directmedia_layer
 SDL2_INSTALL_STAGING = YES
 SDL2_CONFIG_SCRIPTS = sdl2-config
 
-SDL2_CONF_OPTS += \
-	--disable-rpath \
-	--disable-arts \
-	--disable-esd \
-	--disable-dbus \
-	--disable-pulseaudio \
-	--disable-video-wayland
+#SDL2_CONF_OPTS += \
+#	--disable-rpath \
+#	--disable-arts \
+#	--disable-esd \
+#	--disable-dbus \
+#	--disable-pulseaudio \
+#	--disable-video-wayland
 
 # We are using autotools build system for sdl2, so the sdl2-config.cmake
 # include path are not resolved like for sdl2-config script.
@@ -155,7 +155,7 @@ ifeq ($(BR2_PACKAGE_SDL2_KMSDRM),y)
 SDL2_DEPENDENCIES += libdrm mesa3d
 SDL2_CONF_OPTS += --enable-video-kmsdrm
 else
-SDL2_CONF_OPTS += --disable-video-kmsdrm
+SDL2_CONF_OPTS += --enable-video-kmsdrm
 endif
 
 $(eval $(autotools-package))
