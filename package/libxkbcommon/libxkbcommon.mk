@@ -21,6 +21,7 @@ LIBXKBCOMMON_CONF_OPTS += -Denable-x11=true
 LIBXKBCOMMON_DEPENDENCIES += libxcb
 else
 LIBXKBCOMMON_CONF_OPTS += -Denable-x11=false
+LIBXKBCOMMON_DEPENDENCIES += wayland wayland-protocols
 #LIBXKBCOMMON_CONF_OPTS += --enable-wayland
 endif
 
