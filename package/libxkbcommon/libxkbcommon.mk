@@ -13,7 +13,6 @@ LIBXKBCOMMON_INSTALL_STAGING = YES
 LIBXKBCOMMON_DEPENDENCIES = host-bison host-flex
 LIBXKBCOMMON_CONF_OPTS = \
 	-Denable-docs=false \
-	-Denable-wayland=true \
 	-Denable-xkbregistry=true
 
 ifeq ($(BR2_PACKAGE_XORG7),y)
@@ -22,7 +21,12 @@ LIBXKBCOMMON_DEPENDENCIES += libxcb
 else
 LIBXKBCOMMON_CONF_OPTS += -Denable-x11=false
 LIBXKBCOMMON_DEPENDENCIES += wayland wayland-protocols
-#LIBXKBCOMMON_CONF_OPTS += --enable-wayland
+LIBXKBCOMMON_CONF_OPTS += -Denable-wayland=true
+endif
+
+ifeq ($(BR2_PACKAGE_WAYLAND),y)
+LIBXKBCOMMON_DEPENDENCIES += wayland wayland-protocols
+LIBXKBCOMMON_CONF_OPTS += -Denable-wayland=true
 endif
 
 $(eval $(meson-package))
