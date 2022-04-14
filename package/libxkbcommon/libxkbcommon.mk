@@ -20,13 +20,13 @@ LIBXKBCOMMON_CONF_OPTS += -Denable-x11=true
 LIBXKBCOMMON_DEPENDENCIES += libxcb
 else
 LIBXKBCOMMON_CONF_OPTS += -Denable-x11=false
-LIBXKBCOMMON_DEPENDENCIES += wayland wayland-protocols
-LIBXKBCOMMON_CONF_OPTS += -Denable-wayland=true
 endif
 
 ifeq ($(BR2_PACKAGE_WAYLAND),y)
 LIBXKBCOMMON_DEPENDENCIES += wayland wayland-protocols
 LIBXKBCOMMON_CONF_OPTS += -Denable-wayland=true
+else
+LIBXKBCOMMON_CONF_OPTS += -Denable-wayland=false
 endif
 
 $(eval $(meson-package))
