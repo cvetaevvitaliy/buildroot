@@ -337,6 +337,11 @@ config BR2_PACKAGE_UTIL_LINUX_SCHEDUTILS
 comment "scheduling utilities need a toolchain w/ headers >= 3.14"
 	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_14
 
+config BR2_PACKAGE_UTIL_LINUX_SFDISK
+	bool "sfdisk"
+	help
+	  Partition table manipulator for Linux
+
 config BR2_PACKAGE_UTIL_LINUX_SETPRIV
 	bool "setpriv"
 	select BR2_PACKAGE_LIBCAP_NG
