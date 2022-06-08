@@ -17,6 +17,15 @@ config BR2_PACKAGE_SDL2_DIRECTFB
 
 comment "DirectFB video driver needs directfb"
 	depends on !BR2_PACKAGE_DIRECTFB
+	
+config BR2_PACKAGE_SDL2_WAYLAND
+	bool "Wayland video driver"
+	select BR2_PACKAGE_SDL2_OPENGL
+	select BR2_PACKAGE_SDL2_OPENGLES
+	depends on BR2_PACKAGE_WAYLAND
+
+comment "Wayland video driver needs weston"
+	depends on !BR2_PACKAGE_WAYLAND	
 
 config BR2_PACKAGE_SDL2_X11
 	bool "X11 video driver"
